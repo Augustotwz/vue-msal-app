@@ -1,14 +1,56 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- User logged -->
+    <div v-if="user">
+      <TheHeader :user="user" />
+      <router-view :user="user" />
     </div>
-    <router-view/>
+    <!-- Login redirect -->
+    <div v-else class="login">
+      <h3>Please sign-in</h3>
+      <button
+        type="button"
+        class="btn btn-primary"
+        @click="$msal.signIn()"
+      >
+        LOGIN
+      </button>
+    </div>
   </div>
 </template>
 
+<script>
+import TheHeader from './components/TheHeader.vue'
+
+export default {
+  components: {
+    TheHeader
+  },
+  computed: {
+    user () {
+      // TODO: user function
+      var user = false
+      // let user = null;
+      // if (this.msal.isAuthenticated) {
+      //   user = {
+      //     ...this.msal.user,
+      //     profile: {}
+      //   }
+      //   if (this.msal.graph && this.msal.graph.profile) {
+      //       user.profile = this.msal.graph.profile
+      //   }
+      // }
+      return user
+    }
+  }
+}
+</script>
+
 <style>
+*{
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,17 +58,12 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.login {
+  margin: auto;
+  margin-top:60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>
