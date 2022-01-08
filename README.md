@@ -1,24 +1,14 @@
-# msal-project
+# Example of vue-msal library implementation
 
-## Project setup
+The vue-msal library is a wrapper of MSAL.js (Microsoft Authentication Library) for usage in Vue.
+
 ```
+# Project setup
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
+# Compiles and hot-reloads for development
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<!-- TODO: set sample page link -->
+- Sample [page]()
+- See [vue-msal documentation](https://www.npmjs.com/package/vue-msal).

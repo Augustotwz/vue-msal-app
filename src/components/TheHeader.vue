@@ -1,15 +1,5 @@
 <template>
   <div class="header">
-    <div class="d-flex justify-content-between align-items-center">
-      <h5>Welcome {{user.name}}</h5>
-      <button
-        type="button"
-        class="btn btn-light btn-sm"
-        @click="$msal.signOut()"
-      >
-        LOGOUT
-      </button>
-    </div>
     <div class="nav d-flex justify-content-center align-items-center">
       <router-link to="/Home">Home</router-link> |
       <router-link to="/About">User info</router-link>
@@ -26,7 +16,7 @@ export default {
 <style scoped>
 .header {
   width: 100%;
-  height: 70px;
+  height: 40px;
   padding: 10px;
   color: white;
   background-color: blue;

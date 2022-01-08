@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <!-- User logged -->
+    <!-------- User logged -------->
     <div v-if="user">
       <TheHeader :user="user" />
       <router-view :user="user" />
     </div>
-    <!-- Login redirect -->
+    <!-------- Login redirect -------->
     <div v-else class="login">
       <h3>Please sign-in</h3>
       <button
@@ -29,7 +29,7 @@ export default {
   computed: {
     user () {
       // TODO: user function
-      var user = false
+      var user = true
       // let user = null;
       // if (this.msal.isAuthenticated) {
       //   user = {
@@ -59,11 +59,15 @@ export default {
   color: #2c3e50;
 }
 .login {
-  margin: auto;
-  margin-top:60px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  width: 300px;
+  height: 180px;
+  margin: auto;
+  margin-top:60px;
+  border:1px solid grey;
+  border-radius: 10px;
 }
 </style>
