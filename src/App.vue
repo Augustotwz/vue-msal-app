@@ -28,18 +28,22 @@ export default {
   },
   computed: {
     user () {
-      // TODO: user function
-      var user = true
-      // let user = null;
-      // if (this.msal.isAuthenticated) {
-      //   user = {
-      //     ...this.msal.user,
-      //     profile: {}
-      //   }
-      //   if (this.msal.graph && this.msal.graph.profile) {
-      //       user.profile = this.msal.graph.profile
-      //   }
-      // }
+      let user = null
+      if (this.$msal.isAuthenticated()) {
+        user = {
+          ...this.msal.user,
+          profile: {},
+          photo: ''
+        }
+        // setting user data
+        if (this.msal.graph && this.msal.graph.profile) {
+          user.profile = this.msal.graph.profile
+        }
+        // setting user photo
+        if (this.msal.graph.photo) {
+          user.photo = URL.createObjectURL(this.msal.graph.photo)
+        }
+      }
       return user
     }
   }

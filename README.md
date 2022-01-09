@@ -9,6 +9,5 @@ npm install
 # Compiles and hot-reloads for development
 npm run serve
 ```
-<!-- TODO: set sample page link -->
-- Sample [page]()
+
 - See [vue-msal documentation](https://www.npmjs.com/package/vue-msal).

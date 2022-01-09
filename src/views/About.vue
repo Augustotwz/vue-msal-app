@@ -1,15 +1,28 @@
 <template>
   <div class="about">
-    <!-- TODO: add about info -->
     <ul class="list-group list-group-flush text-justify">
-      <li class="list-group-item"><span>Name: </span> userName</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+      <li class="list-group-item" v-if="user.name"><span>Name: </span> {{ user.name }}</li>
+      <li class="list-group-item" v-if="user.userName"><span>Email: </span> {{ user.userName }}</li>
+      <div v-if="user.profile">
+        <li class="list-group-item" v-if="user.profile.jobTitle">
+          <span>Job Title: </span> {{ user.profile.jobTitle }}
+        </li>
+        <li class="list-group-item" v-if="user.profile.officeLocation">
+          <span>Local: </span> {{ user.profile.officeLocation }}
+        </li>
+        <li class="list-group-item" v-if="user.profile.mobilePhone">
+          <span>Phone: </span> {{ user.profile.mobilePhone }}
+        </li>
+      </div>
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  props: { user: Boolean }
+}
+</script>
 
 <style scoped>
 .about {

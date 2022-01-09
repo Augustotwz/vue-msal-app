@@ -5,14 +5,19 @@ import msal from 'vue-msal'
 
 Vue.config.productionTip = false
 
-// TODO: add msal info
 Vue.use(msal, {
   auth: {
-    clientId: '<YOUR CLIENT ID HERE>',
-    tenantId: '<YOUR TENANT ID HERE>',
-    authority: '',
-    redirectUri: ''
+    clientId: '<CLIENT ID HERE>',
+    // authority: '<AUTHORITY LINK HERE>',
+    redirectUri: 'http://localhost:8081'
     // requireAuthOnInitialize: false
+  },
+  graph: {
+    callAfterInit: true,
+    endpoints: {
+      profile: '/me',
+      photo: { url: '/me/photo/$value', responseType: 'blob', force: true }
+    }
   },
   request: {
     scopes: ['user.read']

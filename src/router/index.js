@@ -5,22 +5,14 @@ import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
-// TODO: Set new routes
-
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
     path: '/Home',
-    name: 'Home',
+    alias: '/',
     component: Home
   },
   {
     path: '/about',
-    name: 'About',
     component: About
   }
 ]
